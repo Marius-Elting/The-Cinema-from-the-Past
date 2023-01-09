@@ -1,43 +1,11 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 .selected {
   background-color: #282c34 !important;
@@ -49,4 +17,48 @@
 
 .reserved {
   background-color: red !important
+}
+
+.AdminPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.AdminPageWrapper article {
+  display: flex;
+  gap: 30px
+}
+
+.AdminPageWrapper div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 100px;
+  width: 100px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.AdminPageWrapper>div:nth-child(3) {
+  background-color: red;
+  height: 50px;
+}
+
+.AdminPageWrapper>div:nth-child(2):hover {
+  box-shadow: 1px 1px 10px black;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 1px 1px 10px black;
+  cursor: pointer;
+}
+
+.hovering {
+  box-shadow: 1px 1px 10px black;
 }

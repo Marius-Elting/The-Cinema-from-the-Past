@@ -1,6 +1,7 @@
 import SelectionMan from "./SelectionMan";
 import { useState, useEffect } from "react";
 import Seat from "./Seat";
+import { Link } from "react-router-dom";
 function SelectionArea() {
     const [right, setRight] = useState(0);
     const [bottom, setBottom] = useState(0);
@@ -12,6 +13,7 @@ function SelectionArea() {
             window.removeEventListener("keydown", checkKey);
         };
     }, [right, bottom]);
+
     function elementsOverlap(el1, el2) {
         const domRect1 = el1.getBoundingClientRect();
         const domRect2 = el2.getBoundingClientRect();
@@ -37,22 +39,19 @@ function SelectionArea() {
         if (e.key === "s" && bottom > 0) {
             setBottom(prev => prev - 20);
         }
+        const chair = Array.from(document.getElementsByClassName("seat"));
+        const man = document.getElementById("SelectionMan");
+        const selectedChair = chair.filter(element => elementsOverlap(man, element));
+        chair.forEach((chair) => chair.classList.remove("hovering"));
+        const classList = Array.from(selectedChair[0].classList);
+        if (!classList.includes("reserved")) selectedChair[0].classList.add("hovering");
         if (e.key === " ") {
-            const chair = Array.from(document.getElementsByClassName("seat"));
-            const man = document.getElementById("SelectionMan");
-            const selectedChair = chair.filter(element => elementsOverlap(man, element));
-            const classList = Array.from(selectedChair[0].classList);
-
             if (classList.includes("selected") && !classList.includes("reserved")) {
                 selectedChair[0].classList.remove("selected");
                 const remVal = selectedChair[0].id <= 12 ? 12 : 8;
-
                 setPrice(prev => prev - remVal);
             } else if (!classList.includes("selected") && !classList.includes("reserved")) {
                 selectedChair[0].classList.add("selected");
-                // console.log("added");
-                // console.log(selectedChair[0].id <= 12);
-                // console.log(selectedChair[0].id);
                 const addVal = selectedChair[0].id <= 12 ? 12 : 8;
                 setPrice(prev => prev + addVal);
             }
@@ -87,7 +86,11 @@ function SelectionArea() {
         height: "650px",
         width: "650px",
         position: "relative",
-        backgroundColor: "blueviolet"
+        backgroundColor: "blueviolet",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingTop: 30
     }}>
         <SelectionMan right={right} bottom={bottom} />
         {seats.map((data) => {
@@ -96,9 +99,16 @@ function SelectionArea() {
             );
         })
         }
-        <button onClick={submitData}>Bestellen</button>
+        <a href="/admin">to Admin</a>
+        <button style={{
+            height: 50,
+            width: 100,
+            backgroundColor: "#2c2c2c",
+            border: "none",
+            borderRadius: 10,
+            color: "white",
+        }} onClick={submitData}>Bestellen</button>
         <p>Preis: {price}€</p>
-
     </section>);
 }
 

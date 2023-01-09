@@ -44,14 +44,7 @@ const sendMail = (seats) => {
             html: `<p style="color: purple;">Es wurden ${seats} gebucht!</p>`,
         };
         transport.sendMail(message, (err, info) => {
-            // console.log(info);
-            // console.log(err);
             console.log("mail gesendet");
-            // if (err) return res.status(500).json({ message: err });
-            // return res.status(200).json({
-            //     status: "success",
-            //     message: "Mail senden",
-            // });
             resolve("Mail gesendet");
         });
     }
@@ -72,11 +65,9 @@ app.post("/api/seats", (req, res) => {
                         element.reserviert = true;
                     }
                 });
-
                 fs.writeFile(PATH, JSON.stringify(readedData, null, 2), () => {
                     if (err) console.log(err);
                 });
-
                 res.json(readedData);
             });
         });
