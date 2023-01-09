@@ -70,6 +70,7 @@ function SelectionArea() {
         const chair = Array.from(document.getElementsByClassName("seat"));
         const checkedSeats = chair.filter(element => Array.from(element.classList).includes("selected"));
         const checkedIds = [];
+        setPrice(0);
         checkedSeats.forEach((elem) => checkedIds.push(Number(elem.id)));
         fetch("http://localhost:9999/api/seats",
             {

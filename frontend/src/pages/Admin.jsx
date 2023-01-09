@@ -8,8 +8,8 @@ function Admin() {
             .then(data => setSeats(data));
     }, []);
     console.log();
-    const ParkettUmsatz = (seats.filter(data => data.reserviert && data.art === "Parkett").length + 1) * 8;
-    const LogeUmsatz = (seats.filter(data => data.reserviert && data.art === "Loge").length + 1) * 12;
+    const ParkettUmsatz = (seats.filter(data => data.reserviert && data.art === "Parkett").length) * 8;
+    const LogeUmsatz = (seats.filter(data => data.reserviert && data.art === "Loge").length) * 12;
 
     const resetAll = () => {
         fetch("http://localhost:9999/api/seats",
