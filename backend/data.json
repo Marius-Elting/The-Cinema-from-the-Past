@@ -1,25 +1,25 @@
 [
   {
     "platz": 1,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 50
   },
   {
     "platz": 2,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 150
   },
   {
     "platz": 3,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 250
   },
   {
     "platz": 4,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 350
   },
@@ -37,7 +37,7 @@
   },
   {
     "platz": 7,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 50
   },
@@ -55,7 +55,7 @@
   },
   {
     "platz": 10,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Loge",
     "position": 350
   },
@@ -91,7 +91,7 @@
   },
   {
     "platz": 16,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Parkett",
     "position": 350
   },
@@ -121,7 +121,7 @@
   },
   {
     "platz": 21,
-    "reserviert": true,
+    "reserviert": false,
     "art": "Parkett",
     "position": 250
   },

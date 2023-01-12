@@ -57,7 +57,7 @@ app.post("/api/seats", (req, res) => {
     const seats = reservedSeats.length;
     sendMail(seats)
         .then(data => {
-            console.log({ data });
+
             fs.readFile(PATH, (err, data) => {
                 const readedData = JSON.parse(data);
                 readedData.forEach(element => {

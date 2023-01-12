@@ -4,7 +4,7 @@ function Admin() {
     const [seats, setSeats] = useState([]);
     // window.reload();
     useEffect(() => {
-        fetch("http://localhost:9999/api/seats")
+        fetch(`${process.env.REACT_APP_BACKENDURL}api/seats`)
             .then(res => res.json())
             .then(data => setSeats(data));
     },);
@@ -13,7 +13,7 @@ function Admin() {
     const LogeUmsatz = (seats.filter(data => data.reserviert && data.art === "Loge").length) * 12;
 
     const resetAll = () => {
-        fetch("http://localhost:9999/api/seats",
+        fetch(`${process.env.REACT_APP_BACKENDURL}api/seats`,
             { method: "DELETE" }
         )
             .then(res => res.json())

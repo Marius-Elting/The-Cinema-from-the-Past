@@ -58,7 +58,7 @@ function SelectionArea() {
         }
     };
     useEffect(() => {
-        fetch("http://localhost:9999/api/seats")
+        fetch(`${process.env.REACT_APP_BACKENDURL}api/seats`)
             .then(res => res.json())
             .then(seats => {
                 setSeats(seats);
@@ -71,7 +71,7 @@ function SelectionArea() {
         const checkedIds = [];
         setPrice(0);
         checkedSeats.forEach((elem) => checkedIds.push(Number(elem.id)));
-        fetch("http://localhost:9999/api/seats",
+        fetch(`${process.env.REACT_APP_BACKENDURL}api/seats`,
             {
                 method: "POST",
                 headers: {
